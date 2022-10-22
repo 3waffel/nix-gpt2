@@ -9,6 +9,7 @@ tokenizer = BertTokenizer.from_pretrained(model_path)
 model = TFGPT2LMHeadModel.from_pretrained(model_path)
 
 generator = TextGenerationPipeline(model, tokenizer)
-outputs = generator(prefix_text, max_length)
+generator.model.config.pad_token_id = generator.model.config.eos_token_id
+outputs = generator(prefix_text, max_length=max_length)
 for output in outputs:
     print(output)

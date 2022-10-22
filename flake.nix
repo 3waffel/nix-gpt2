@@ -18,7 +18,8 @@
         gpt2-medium-chinese = pkgs.fetchgit {
           url = "https://huggingface.co/mymusise/gpt2-medium-chinese";
           branchName = "main";
-          sha256 = "0k67x1kxnxvlj3gn4nnvmwyf8kw6i1r2l00v020aay49gzq9z8mj";
+          rev = "97a07265c8a4724f381968060abb979d759ce628";
+          sha256 = "mj4dTyggUsr9YFSfToKaLVOFAv+D5HdgjUgxdaoo6Us=";
           fetchLFS = true;
         };
       in {
@@ -33,8 +34,8 @@
         devShells.default = let
           pythonWithPackages = pkgs.python39.withPackages (p:
             with p; [
-              pytorch
-              sentencepiece
+              tensorflow
+              keras
               transformers
             ]);
         in
